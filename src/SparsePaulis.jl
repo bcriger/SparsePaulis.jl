@@ -56,4 +56,12 @@ function char(elem::T, pauli::SparsePauli{T}) where T
     end #if
 end #function
 
+"""
+Copies a SparsePauli by returning a new SparsePauli whose x_set, z_set
+and phase_int are all `copy`d.
+"""
+function copy(pauli::SparsePauli{T}) where T
+    SparsePauli{T}(copy(pauli.x_set), copy(pauli.z_set), copy(phase_int))
+end #function
+
 end # module
